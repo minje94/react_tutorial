@@ -57,7 +57,6 @@ class PhoneInfo extends Component {
             margin: '8px',
         };
 
-        console.log(name);
         return (
             <div style = {style}>
                 {

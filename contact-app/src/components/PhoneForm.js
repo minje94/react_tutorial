@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 //app의 자식 컴포넌트
 
 class PhoneForm extends Component {
+    input = React.createRef();
 
     state = {
         name: '',
@@ -16,16 +17,13 @@ class PhoneForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.onCreate({
-            name: this.state.name,
-            phone: this.state.phone,
-        })
-        //this.props.onCreate(this.state); 해도 같다.
-        
+        this.props.onCreate(this.state);
         this.setState({
             name: '',
             phone: '',
-        })
+        });
+       // this.input.current.focus();
+        
     }
 
     render() {
@@ -35,7 +33,8 @@ class PhoneForm extends Component {
                     name = "name"
                     placeholder = "이름" 
                     onChange = {this.handleChange} 
-                    value = {this.state.value}
+                    value = {this.state.name}
+                    ref = {this.input}
                 />
                 <input 
                     name = "phone"

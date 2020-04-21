@@ -11,7 +11,6 @@ class PhoneInfoList extends Component {
         const { data, onRemove, onUpdate } = this.props;
 
         //if(!data) return null; defaultProps와 같음.
-        console.log('rendering list');
         const list = data.map(
             info => (
                 <PhoneInfo 
